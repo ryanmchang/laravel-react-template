@@ -1,35 +1,55 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Navbar from './navbar';
-import { resumeSession } from '../actions/userActions';
+import {sendExampleAction, resetStore} from '../actions/exampleActions';
 
 class Master extends Component {
     constructor(props){
         super(props);
+
+        this.dispatchExampleAction = this.dispatchExampleAction.bind(this);
+    }
+
+    dispatchExampleAction(){
+        this.props.sendExampleAction();
+    }
+
+    componentWillMount(){
+        this.props.resetStore();
     }
 
     componentDidMount() {
-
-        this.props.resumeSession().then(() => {
-            // history.push("/home");
-        }).catch(() => {
-
-        });
-
     }
 
+
     render(){
+
+        const example = this.props.example;
+        const exampleList = example.allIds.map(id => <div key={id}> Dispatched: {example.byId[id]} </div>);
+
         return (
             <div>
+                <Navbar/>
+                <button onClick={() => this.dispatchExampleAction()}>CLICK</button>
+                {exampleList}
             </div>
         )
     }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapStateToProps(state){
     return {
-        resumeSession: () => dispatch(resumeSession())
+        example: state.example
     }
 }
 
-export default connect(null, mapDispatchToProps)(Master);
+function mapDispatchToProps(dispatch) {
+    return {
+        sendExampleAction: () => dispatch(sendExampleAction()),
+        resetStore: () => dispatch(resetStore())
+    }
+}
+
+
+//connect allows you to reference the store
+export default connect(mapStateToProps, mapDispatchToProps)(Master);

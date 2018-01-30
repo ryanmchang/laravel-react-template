@@ -3,10 +3,10 @@
 require('./bootstrap');
 import React from 'react';
 import {render} from 'react-dom';
-import {Router} from 'react-router-dom'
 import {Provider} from 'react-redux';
-import {Switch, Route} from 'react-router-dom';
+// import {Switch, Route} from 'react-router-dom';
 import {PersistGate} from 'redux-persist/es/integration/react'
+import Master from './components/master'
 import configureStore from './store'
 
 const {persistor, store} = configureStore();
@@ -16,10 +16,11 @@ const {persistor, store} = configureStore();
 //persistgate rehydrates state after reloads
 
 render(
-    <Provider store={store}>
+
+    (<Provider store={store}>
         <PersistGate persistor={persistor}>
             <Master/>
         </PersistGate>
-    </Provider>,
+    </Provider>),
     document.getElementById('example')
 );
