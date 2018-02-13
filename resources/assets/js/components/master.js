@@ -3,7 +3,10 @@ import {connect} from 'react-redux';
 import Navbar from './navbar';
 import {sendExampleAction, resetStore} from '../actions/exampleActions';
 import {Switch, Route} from 'react-router-dom';
-import Home from 'home'
+import Home from './home'
+import Category from './category'
+import Resource from './resource'
+import Profile from './profile'
 
 class Master extends Component {
     constructor(props){
@@ -33,10 +36,12 @@ class Master extends Component {
             <div>
                 <Navbar/>
                 <Switch>
+
                     <Route exact path='/' component={Home}/>
-                    {/* both /roster and /roster/:number begin with /roster */}
-                    {/*<Route path='/roster' component={Roster}/>*/}
-                    {/*<Route path='/schedule' component={Schedule}/>*/}
+                    <Route path='/category/:number' component={Category}/>
+                    <Route path='/profile/:number' component={Profile}/>
+                    <Route path='/resource/:number' component={Resource}/>
+
                 </Switch>
                 <button onClick={() => this.dispatchExampleAction()}>CLICK</button>
                 {exampleList}
