@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import Navbar from './navbar';
 import {sendExampleAction, resetStore} from '../actions/exampleActions';
 import {Switch, Route} from 'react-router-dom';
-import Home from 'home'
+import Home from './home'
 
 class Master extends Component {
     constructor(props){

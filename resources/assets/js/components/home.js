@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import Navbar from './navbar';
 import {sendExampleAction, resetStore} from '../actions/exampleActions';
-import {Switch, Route} from 'react-router-dom';
 
 class Home extends Component {
     constructor(props){
