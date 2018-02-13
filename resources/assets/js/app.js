@@ -4,7 +4,9 @@ require('./bootstrap');
 import React from 'react';
 import {render} from 'react-dom';
 import {Provider} from 'react-redux';
-// import {Switch, Route} from 'react-router-dom';
+import history from './history';
+
+import {Switch, Router} from 'react-router-dom';
 import {PersistGate} from 'redux-persist/es/integration/react'
 import Master from './components/master'
 import configureStore from './store'

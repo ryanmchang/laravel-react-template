@@ -3,9 +3,8 @@ import {connect} from 'react-redux';
 import Navbar from './navbar';
 import {sendExampleAction, resetStore} from '../actions/exampleActions';
 import {Switch, Route} from 'react-router-dom';
-import Home from 'home'
 
-class Master extends Component {
+class Home extends Component {
     constructor(props){
         super(props);
 
@@ -31,13 +30,6 @@ class Master extends Component {
 
         return (
             <div>
-                <Navbar/>
-                <Switch>
-                    <Route exact path='/' component={Home}/>
-                    {/* both /roster and /roster/:number begin with /roster */}
-                    {/*<Route path='/roster' component={Roster}/>*/}
-                    {/*<Route path='/schedule' component={Schedule}/>*/}
-                </Switch>
                 <button onClick={() => this.dispatchExampleAction()}>CLICK</button>
                 {exampleList}
             </div>
@@ -60,4 +52,4 @@ function mapDispatchToProps(dispatch) {
 
 
 //connect allows you to reference the store
-export default connect(mapStateToProps, mapDispatchToProps)(Master);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
