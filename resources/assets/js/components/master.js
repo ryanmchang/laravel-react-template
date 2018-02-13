@@ -38,8 +38,6 @@ class Master extends Component {
                     {/*<Route path='/roster' component={Roster}/>*/}
                     {/*<Route path='/schedule' component={Schedule}/>*/}
                 </Switch>
-                <button onClick={() => this.dispatchExampleAction()}>CLICK</button>
-                {exampleList}
             </div>
         )
     }
