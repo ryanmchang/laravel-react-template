@@ -18,11 +18,12 @@ const {persistor, store} = configureStore();
 //persistgate rehydrates state after reloads
 
 render(
-
     (<Provider store={store}>
-        <PersistGate persistor={persistor}>
-            <Master/>
-        </PersistGate>
+        <Router history={history}>
+            <PersistGate persistor={persistor}>
+                <Master/>
+            </PersistGate>
+        </Router>
     </Provider>),
     document.getElementById('example')
 );

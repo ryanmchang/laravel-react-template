@@ -3,23 +3,6 @@ import {connect} from 'react-redux';
 import {Switch, Route} from 'react-router-dom';
 
 class Resource extends Component {
-    constructor(props){
-        super(props);
-
-        this.dispatchExampleAction = this.dispatchExampleAction.bind(this);
-    }
-
-    dispatchExampleAction(){
-        this.props.sendExampleAction();
-    }
-
-    componentWillMount(){
-        this.props.resetStore();
-    }
-
-    componentDidMount() {
-    }
-
 
     render(){
 
@@ -29,19 +12,6 @@ class Resource extends Component {
                 Hi, memes.
             </div>
         )
-    }
-}
-
-function mapStateToProps(state){
-    return {
-        example: state.example
-    }
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        sendExampleAction: () => dispatch(sendExampleAction()),
-        resetStore: () => dispatch(resetStore())
     }
 }
 

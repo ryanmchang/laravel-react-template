@@ -4,6 +4,7 @@ import Navbar from './navbar';
 import {sendExampleAction, resetStore} from '../actions/exampleActions';
 import {Switch, Route} from 'react-router-dom';
 import Home from './home'
+
 import Category from './category'
 import Resource from './resource'
 import Profile from './profile'
@@ -40,11 +41,9 @@ class Master extends Component {
                     <Route exact path='/' component={Home}/>
                     <Route path='/category/:number' component={Category}/>
                     <Route path='/profile/:number' component={Profile}/>
-                    <Route path='/resource/:number' component={Resource}/>
+                    <Route exact path='/resource' component={Resource}/>
 
                 </Switch>
-                <button onClick={() => this.dispatchExampleAction()}>CLICK</button>
-                {exampleList}
             </div>
         )
     }
